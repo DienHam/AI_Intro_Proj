@@ -1,16 +1,250 @@
-# React + Vite
+đọc phát biết cài luôn
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## 🛠️ Technologies
 
-Currently, two official plugins are available:
+- React
+- Vite
+- JavaScript
+- React Leaflet
+- Leaflet
+- Recharts
+- Open-Meteo Air Quality API
+- CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📋 Requirements
 
-## React Compiler
+Trước khi chạy project, cần cài:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Node.js**
+- **npm**
+- Git
 
-## Expanding the Oxlint configuration
+Kiểm tra phiên bản:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+node -v
+npm -v
+git --version
+```
+
+Khuyến nghị sử dụng Node.js phiên bản LTS.
+
+## 🚀 Installation
+
+### 1. Clone repository
+
+```bash
+git clone <REPOSITORY_URL>
+```
+
+Ví dụ:
+
+```bash
+git clone https://github.com/DienHam/Air-Quality-Prediction-2026.git
+```
+
+Di chuyển vào thư mục project:
+
+```bash
+cd Air-Quality-Prediction-2026
+```
+
+Nếu project nằm trong một branch cụ thể:
+
+```bash
+git checkout dashboard_test
+```
+
+Hoặc nếu branch chưa được tải về local:
+
+```bash
+git fetch origin
+git checkout -b dashboard_test origin/dashboard_test
+```
+
+### 2. Cài dependencies
+
+Không cần tự cài React, Vite hay các thư viện khác từng cái một.
+
+Chỉ cần:
+
+```bash
+npm install
+```
+
+npm sẽ đọc `package.json` và tự động cài các dependencies cần thiết.
+
+Sau khi cài đặt, thư mục `node_modules/` sẽ được tạo tự động.
+
+### 3. Chạy project
+
+```bash
+npm run dev
+```
+
+Terminal sẽ hiển thị địa chỉ local, ví dụ:
+
+```text
+Local: http://localhost:5173/
+```
+
+Mở địa chỉ đó trên trình duyệt.
+
+## 🔄 Development
+
+Sau khi chạy:
+
+```bash
+npm run dev
+```
+
+có thể tiếp tục chỉnh sửa code trong VS Code.
+
+Vite hỗ trợ **Hot Module Replacement (HMR)**, vì vậy khi lưu file:
+
+```text
+VS Code
+   ↓
+Ctrl + S
+   ↓
+Vite phát hiện thay đổi
+   ↓
+Browser tự cập nhật
+```
+
+Không cần chạy lại `npm run dev` sau mỗi lần sửa code.
+
+## 🧪 Build Production
+
+Để tạo bản build production:
+
+```bash
+npm run build
+```
+
+Các file build sẽ được tạo trong:
+
+```text
+dist/
+```
+
+Có thể kiểm tra bản build bằng:
+
+```bash
+npm run preview
+```
+
+## ⚠️ Troubleshooting
+
+### `npm` không được nhận diện
+
+Kiểm tra:
+
+```bash
+node -v
+npm -v
+```
+
+Nếu không có version, hãy cài Node.js LTS rồi mở lại terminal.
+
+### `npm install` bị lỗi
+
+Thử:
+
+```bash
+npm cache verify
+npm install
+```
+
+Nếu vẫn lỗi, kiểm tra phiên bản Node.js:
+
+```bash
+node -v
+```
+
+### Localhost không hiển thị
+
+Kiểm tra terminal xem Vite có đang chạy không:
+
+```bash
+npm run dev
+```
+
+Sau đó mở URL được Vite cung cấp, ví dụ:
+
+```text
+http://localhost:5173/
+```
+
+### Map không hiển thị
+
+Kiểm tra:
+
+- Browser có Internet không.
+- Leaflet đã được cài chưa.
+- CSS của Leaflet đã được import.
+- Browser Console có báo lỗi JavaScript không.
+
+### API không trả dữ liệu
+
+Kiểm tra Internet và thử mở API endpoint trong trình duyệt.
+
+API trả về JSON là bình thường; endpoint API không phải một trang web có giao diện.
+
+## 🤝 Development Workflow
+
+Khi làm việc nhóm:
+
+```bash
+git pull
+```
+
+Sau khi chỉnh sửa:
+
+```bash
+git add .
+git commit -m "Describe your changes"
+git push
+```
+
+Khuyến nghị tạo branch riêng cho từng feature:
+
+```bash
+git checkout -b feature/your-feature
+```
+
+Ví dụ:
+
+```bash
+git checkout -b feature/areas
+```
+
+Sau đó push:
+
+```bash
+git push -u origin feature/areas
+```
+
+## 🚫 Files Not Committed
+
+Không commit các thư mục/file được tạo tự động:
+
+```text
+node_modules/
+dist/
+```
+
+Các dependency cần thiết được quản lý thông qua:
+
+```text
+package.json
+package-lock.json
+```
+
+Người khác chỉ cần chạy:
+
+```bash
+npm install
+```
+
+để tạo lại `node_modules`.

@@ -1,35 +1,16 @@
-# Air Quality Prediction 2026
+# React + Vite
 
-Dự báo nồng độ PM2.5 ở giờ tiếp theo tại Hà Nội, Việt Nam, kèm bản đồ nhiệt, chatbot hỏi đáp và bản đồ tương tác trên Google Earth. Kết quả dùng để cảnh báo ngắn hạn, không thay thế trạm quan trắc.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-## Mục tiêu
+Currently, two official plugins are available:
 
-- Dự báo PM2.5 tại t+1 từ số đo theo giờ.
-- Heatmap nồng độ PM2.5 theo không gian và thời gian.
-- Chatbot trả lời câu hỏi về chất lượng không khí và trực quan hóa dữ liệu.
-- Phân tích xu hướng theo giờ, ngày, mùa và theo trạm.
-- Xuất dữ liệu sang Google Earth để xem tương tác.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Dữ liệu
+## React Compiler
 
-Số đo PM2.5 theo giờ của các trạm ở Hà Nội lấy từ [OpenAQ](https://openaq.org/). Dữ liệu thời tiết (nếu dùng) sẽ ghi rõ nguồn sau khi chọn.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Ban đầu dự án thử trên [Beijing Multi-Site Air Quality](https://archive.ics.uci.edu/dataset/501/beijing+multi+site+air+quality+data) (UCI id 501) để dựng quy trình, sau đó chuyển sang Hà Nội.
+## Expanding the Oxlint configuration
 
-## Phương pháp
-
-- Sắp theo thời gian, xử lý giờ thiếu bằng nội suy hoặc bỏ (ghi rõ cách chọn).
-- Nhãn là PM2.5 tại t+1.
-- Những tháng cuối làm tập test, không chia ngẫu nhiên để tránh rò rỉ giữa các giờ kề nhau.
-
-Ba mô hình so sánh:
-
-1. Baseline: giờ sau bằng giờ này.
-2. Hồi quy với lag 1 giờ, lag 24 giờ và tốc độ gió.
-3. Gradient boosting trên cùng ba đặc trưng đó.
-
-Metric: MAE và RMSE (µg/m³).
-
-## Trạng thái
-
-Đang trong giai đoạn lên kế hoạch, chưa có code.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.

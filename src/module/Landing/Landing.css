@@ -178,7 +178,7 @@
 /* The headline sits in a frosted frame so it stays readable on the photo. */
 .lp-hero-content {
   position: relative;
-  max-width: 700px;
+  max-width: 780px;
   padding: clamp(26px, 4vw, 46px);
   border: 1px solid rgba(255, 255, 255, .2);
   border-radius: 44px 44px 44px 10px;
@@ -218,7 +218,7 @@
 
 .lp-hero h1 {
   margin-top: 20px;
-  font-size: clamp(42px, 7vw, 84px);
+  font-size: clamp(40px, 6.4vw, 78px);
   font-weight: 800;
   letter-spacing: -.035em;
   line-height: 1;
@@ -226,7 +226,8 @@
 
 .lp-hero h1 em {
   position: relative;
-  display: inline-block;
+  display: block;
+  width: fit-content;
   color: var(--mint);
   font-style: normal;
 }
@@ -374,6 +375,7 @@
   align-items: center;
   gap: clamp(32px, 6vw, 80px);
   padding-top: clamp(24px, 4vw, 56px);
+  padding-bottom: clamp(96px, 11vw, 150px);
 }
 
 .lp-about-text p {
@@ -415,23 +417,77 @@
 
 .lp-about-photo {
   position: relative;
-  max-width: 460px;
+  isolation: isolate;
+  width: 100%;
+  max-width: 540px;
   margin-inline: auto;
 }
 
-/* Arch window crop */
-.lp-arch {
-  position: relative;
-  overflow: hidden;
-  border-radius: 999px 999px 32px 32px;
-  box-shadow: 0 30px 70px rgba(11, 42, 31, .22);
+/* Three-tile collage: one tall arch and two smaller shapes */
+.lp-collage {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+  aspect-ratio: 1 / 1.05;
 }
 
-.lp-arch img {
+.lp-tile {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--accent-soft);
+  box-shadow: 0 24px 50px rgba(11, 42, 31, .18);
+}
+
+.lp-tile img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
+  transition: transform .6s cubic-bezier(.2, .7, .2, 1);
+}
+
+.lp-tile:hover img {
+  transform: scale(1.06);
+}
+
+.lp-tile.arch {
+  grid-row: 1 / 3;
+  border-radius: 999px 999px 32px 32px;
+}
+
+.lp-tile.leafy {
+  border-radius: 110px 28px 110px 28px;
+}
+
+.lp-tile.street {
+  border-radius: 28px 28px 28px 8px;
+}
+
+.lp-tile figcaption {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .92);
+  color: var(--forest);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.lp-tile.arch figcaption {
+  right: 0;
+  left: 0;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.lp-tile.leafy figcaption {
+  bottom: 14px;
+  left: auto;
+  right: 38px;
 }
 
 .lp-shape {
@@ -466,10 +522,10 @@
 
 .lp-photo-card {
   position: absolute;
-  right: -22px;
-  bottom: 34px;
+  right: 8px;
+  bottom: -92px;
   z-index: 3;
-  width: min(250px, 72%);
+  width: min(250px, 62%);
   padding: 18px;
   border-radius: 24px 24px 24px 6px;
   background: #fff;
@@ -789,6 +845,7 @@
   .lp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .lp-about { grid-template-columns: 1fr; }
   .lp-photo-card { right: 8px; }
+  .lp-about { gap: 56px; }
 }
 
 @media (max-width: 720px) {
@@ -809,4 +866,8 @@
   .reveal { opacity: 1; transform: none; transition: none; }
   .lp-card,
   .lp-cta { transition: none; }
+}
+
+.lp-final .lp-wave {
+  z-index: 2;
 }

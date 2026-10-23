@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from "react";
 import L from "leaflet";
 import { MapContainer, TileLayer, CircleMarker, Popup, ImageOverlay, Pane, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { formatValue, statusFor } from "./aqi";
+import { formatValue, heatColor, statusFor } from "./aqi";
 import { IconExpand, IconLayers, IconMinus, IconPlus, IconShrink, IconTarget } from "./Icons";
 
 const CENTER = [21.0285, 105.8342];
@@ -13,30 +13,6 @@ const HEAT_SIZE = 256;
 const HEAT_FULL = 0.05; // degrees from a station where the colour is fully opaque
 const HEAT_FADE = 0.15; // degrees from a station where it has faded out
 const HEAT_ALPHA = 0.5;
-
-// A continuous ramp. Most Hanoi readings sit around 25-30, so that stretch goes green to
-// lime instead of jumping to yellow, which turns muddy over the map.
-const HEAT_STOPS = [
-  [15, [34, 197, 94]],
-  [28, [132, 204, 22]],
-  [42, [250, 204, 21]],
-  [60, [249, 115, 22]],
-  [100, [239, 68, 68]],
-  [150, [185, 28, 28]]
-];
-
-function heatColor(value) {
-  if (value <= HEAT_STOPS[0][0]) return HEAT_STOPS[0][1];
-  for (let i = 1; i < HEAT_STOPS.length; i += 1) {
-    const [v1, c1] = HEAT_STOPS[i];
-    if (value <= v1) {
-      const [v0, c0] = HEAT_STOPS[i - 1];
-      const t = (value - v0) / (v1 - v0);
-      return c0.map((channel, k) => channel + (c1[k] - channel) * t);
-    }
-  }
-  return HEAT_STOPS[HEAT_STOPS.length - 1][1];
-}
 
 /** Inverse-distance-weighted PM2.5 surface between stations, as a PNG data URL. */
 function buildHeatImage(points) {

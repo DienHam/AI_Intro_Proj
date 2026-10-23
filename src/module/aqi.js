@@ -71,3 +71,28 @@ export function downloadCsv(filename, rows) {
   link.click();
   URL.revokeObjectURL(url);
 }
+
+// A continuous ramp. Most Hanoi readings sit around 25-30, so that stretch goes green to
+// lime instead of jumping to yellow, which turns muddy over the map.
+const HEAT_STOPS = [
+  [15, [34, 197, 94]],
+  [28, [132, 204, 22]],
+  [42, [250, 204, 21]],
+  [60, [249, 115, 22]],
+  [100, [239, 68, 68]],
+  [150, [185, 28, 28]]
+];
+
+export function heatColor(value) {
+  if (value <= HEAT_STOPS[0][0]) return HEAT_STOPS[0][1];
+  for (let i = 1; i < HEAT_STOPS.length; i += 1) {
+    const [v1, c1] = HEAT_STOPS[i];
+    if (value <= v1) {
+      const [v0, c0] = HEAT_STOPS[i - 1];
+      const t = (value - v0) / (v1 - v0);
+      return c0.map((channel, k) => channel + (c1[k] - channel) * t);
+    }
+  }
+  return HEAT_STOPS[HEAT_STOPS.length - 1][1];
+}
+

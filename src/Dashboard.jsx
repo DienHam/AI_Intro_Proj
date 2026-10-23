@@ -18,7 +18,7 @@ import AirQuality from "./module/views/AirQuality";
 import Forecast from "./module/views/Forecast";
 import Historical from "./module/views/Historical";
 import { axisTick, tooltipStyle } from "./module/views/chartStyle";
-import { BANDS, PAST_HOURS, formatValue, seriesFor, statusFor, timeParts } from "./module/aqi";
+import { BANDS, PAST_HOURS, formatValue, seriesFor, statusFor } from "./module/aqi";
 import {
   IconAir,
   IconArrowRight,
@@ -173,16 +173,6 @@ function Dashboard({ user, onLogout, onHome }) {
       lowest: sorted[sorted.length - 1] ?? null
     };
   }, [stationValues]);
-
-  const cityTrend = useMemo(() => {
-    const ref = stationValues.find((s) => s.times);
-    if (!ref) return [];
-    const start = Math.max(0, ref.currentIndex - 23);
-    return ref.times.slice(start, ref.currentIndex + 1).map((time, offset) => {
-      const { hm, full } = timeParts(time);
-      return { axis: hm, full, city: cityAvg[start + offset] ?? null };
-    });
-  }, [stationValues, cityAvg]);
 
   const drawerSeries = useMemo(
     () => seriesFor(selectedStation, period === "7D" ? 168 : 24),
@@ -383,7 +373,7 @@ function Dashboard({ user, onLogout, onHome }) {
           ) : (
             <div className="view" key={activeModule}>
               {activeModule === "Overview" && (
-                <Overview {...stationProps} city={city} cityTrend={cityTrend} onOpenStation={openStation} />
+                <Overview {...stationProps} city={city} cityAvg={cityAvg} onOpenStation={openStation} />
               )}
               {activeModule === "Stations" && <Stations {...stationProps} onOpenStation={openStation} />}
               {activeModule === "Air Quality" && <AirQuality city={city} stationValues={stationValues} />}

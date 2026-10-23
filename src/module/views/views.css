@@ -446,3 +446,198 @@
 @media (max-width: 720px) {
   .view { padding: 0 14px 14px; }
 }
+
+/* Overview: insights first, then the charts that back them up */
+.ov {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ov-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 20px 28px;
+  padding: clamp(20px, 3vw, 30px);
+  border-radius: 28px 28px 28px 8px;
+  background: radial-gradient(130% 160% at 90% 0%, #2d7a63 0%, #1f5a49 55%, #174236 100%);
+  color: #fff;
+}
+
+.ov-hero .eyebrow { color: #bfe8d2; }
+
+.ov-hero h2 {
+  margin: 10px 0 0;
+  font-family: var(--display);
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.ov-hero p {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, .84);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.ov-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.ov-kpis > div {
+  padding: 12px 12px 14px;
+  border-radius: 18px 18px 18px 5px;
+  background: rgba(255, 255, 255, .12);
+}
+
+.ov-kpis dt {
+  color: rgba(255, 255, 255, .72);
+  font-size: 11.5px;
+  line-height: 1.3;
+}
+
+.ov-kpis dd {
+  margin: 8px 0 0;
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1;
+}
+
+.ov-kpis dd small {
+  margin-left: 3px;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 500;
+  opacity: .75;
+}
+
+.ov-kpis dd.up { color: #ffc69a; }
+.ov-kpis dd.down { color: #a7e8c1; }
+
+.ov-insights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ov-insight {
+  padding: 18px 18px 20px;
+  border-radius: 24px 24px 24px 7px;
+}
+
+.ov-insight.tone-a { background: var(--accent-soft); }
+.ov-insight.tone-b { background: #f3ecda; }
+.ov-insight.tone-c { background: #dfebf0; }
+.ov-insight.tone-d { background: #f1e3df; }
+
+.ov-kicker {
+  color: #4a524d;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.ov-stat {
+  margin-top: 10px;
+  font-family: var(--display);
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -.035em;
+  line-height: 1;
+}
+
+.ov-insight small {
+  display: block;
+  margin-top: 6px;
+  color: #4a524d;
+  font-size: 12px;
+}
+
+.ov-insight p {
+  margin: 12px 0 0;
+  color: #2f3632;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.ov-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* Day x hour calendar */
+.cal { display: flex; flex-direction: column; gap: 3px; }
+
+.cal-row {
+  display: grid;
+  grid-template-columns: 62px repeat(24, minmax(0, 1fr));
+  align-items: center;
+  gap: 3px;
+}
+
+.cal-day {
+  color: var(--muted);
+  font-size: 11.5px;
+  white-space: nowrap;
+}
+
+.cal-hour {
+  color: var(--muted);
+  font-size: 10.5px;
+  text-align: left;
+}
+
+.cal-cell {
+  display: block;
+  aspect-ratio: 1 / 1;
+  border-radius: 5px 5px 5px 2px;
+  background: var(--surface);
+  transition: transform .12s;
+}
+
+.cal-cell:hover { transform: scale(1.25); position: relative; z-index: 1; }
+
+.cal-cell.now {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.cal-legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11.5px;
+}
+
+.cal-legend i {
+  display: block;
+  width: 120px;
+  height: 8px;
+  border-radius: 999px;
+}
+
+@media (max-width: 1250px) {
+  .ov-hero { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .ov-pair { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .ov-insights { grid-template-columns: 1fr; }
+  .cal-row { grid-template-columns: 48px repeat(24, minmax(0, 1fr)); gap: 2px; }
+  .ov-kpis dd { font-size: 22px; }
+}

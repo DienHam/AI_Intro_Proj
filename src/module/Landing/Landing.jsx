@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { BANDS, formatValue, statusFor } from "../aqi";
 import { IconArrowRight, IconForecast, IconHistory, IconMap, IconSpark } from "../Icons";
+import Orbit from "./Orbit";
 import "./Landing.css";
 
 const FEATURES = [
@@ -163,8 +164,10 @@ export default function Landing({ user, onStart, onLogin }) {
           </div>
         </div>
 
-        <Wave fill="#fff" />
+        <Wave fill="#050f0b" />
       </section>
+
+      <Orbit live={live} onStart={onStart} />
 
       <section className="lp-section lp-about" id="about">
         <Reveal className="lp-about-text">
@@ -185,8 +188,19 @@ export default function Landing({ user, onStart, onLogin }) {
           <Blob className="lp-shape blob" />
           <span className="lp-shape sun" />
           <Leaf className="lp-shape leaf" />
-          <div className="lp-arch">
-            <img src="/images/hoan-kiem.jpg" alt="Lối đi ven hồ Hoàn Kiếm dưới tán cây xanh" loading="lazy" />
+          <div className="lp-collage">
+            <figure className="lp-tile arch">
+              <img src="/images/hoan-kiem.jpg" alt="Lối đi ven hồ Hoàn Kiếm dưới tán cây xanh" loading="lazy" />
+              <figcaption>Hồ Hoàn Kiếm</figcaption>
+            </figure>
+            <figure className="lp-tile leafy">
+              <img src="/images/one-pillar.jpg" alt="Chùa Một Cột giữa tán cây" loading="lazy" />
+              <figcaption>Chùa Một Cột</figcaption>
+            </figure>
+            <figure className="lp-tile street">
+              <img src="/images/flower-market.jpg" alt="Quầy hoa trên phố cổ Hà Nội" loading="lazy" />
+              <figcaption>Phố cổ</figcaption>
+            </figure>
           </div>
           <div className="lp-photo-card">
             <span>Ngưỡng PM2.5 trên bản đồ</span>
@@ -267,7 +281,7 @@ export default function Landing({ user, onStart, onLogin }) {
           <p>Dữ liệu: Open-Meteo Air Quality API. Bản đồ: OpenStreetMap contributors.</p>
         </div>
         <p>
-          Ảnh từ Wikimedia Commons (CC0): Hanoi skyline with Ba Vi Mountain, Hoan Kiem Lake (DSC03685), Long Bien Bridge.
+          Ảnh từ Wikimedia Commons (CC0): Hanoi skyline with Ba Vi Mountain, Hoan Kiem Lake (DSC03685), Long Bien Bridge, One Pillar Pagoda (DSC03500), Flower market (DSC03681).
         </p>
       </footer>
     </div>

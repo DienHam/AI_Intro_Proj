@@ -1,0 +1,28 @@
+field,source,n_stations_with_values,hour_coverage,decision
+pm25_lag1,openaq,3,0.9303,mo hinh v1
+pm25_lag24,openaq,3,0.9303,mo hinh v1
+wind_speed_10m,era5,3,1.0,mo hinh v1
+hour_sin,calendar,3,1.0,them vao boosting
+hour_cos,calendar,3,1.0,them vao boosting
+dow_sin,calendar,3,1.0,them vao boosting
+dow_cos,calendar,3,1.0,them vao boosting
+is_dry_season,calendar,3,1.0,them vao boosting
+temperature_2m,era5,3,1.0,them vao boosting
+relative_humidity_2m,era5,3,1.0,them vao boosting
+surface_pressure,era5,3,1.0,them vao boosting
+wind_u,era5,3,1.0,them vao boosting
+wind_v,era5,3,1.0,them vao boosting
+precipitation,era5,3,1.0,them vao boosting
+boundary_layer_height,era5,3,1.0,them vao boosting
+pm10,openaq,2,0.6258,bo: do phu duoi 70%
+no2,openaq,2,0.4908,bo: do phu duoi 70%
+o3,openaq,2,0.5963,bo: do phu duoi 70%
+so2,openaq,2,0.6138,bo: do phu duoi 70%
+co,openaq,2,0.1896,bo: do phu duoi 70%
+cams_pm25,cams_global,3,1.0,them vao boosting
+cams_pm10,cams_global,3,1.0,bo: tuong quan 1.00 voi cams_pm25
+cams_no2,cams_global,3,1.0,them vao boosting
+cams_o3,cams_global,3,1.0,them vao boosting
+cams_dust,cams_global,3,1.0,them vao boosting
+cams_aod,cams_global,3,1.0,them vao boosting
+month,calendar,3,1.0,them vao boosting

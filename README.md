@@ -12,7 +12,7 @@ Dự báo nồng độ PM2.5 ở giờ tiếp theo tại Hà Nội, Việt Nam, 
 
 ## Dữ liệu
 
-Số đo PM2.5 theo giờ của các trạm ở Hà Nội lấy từ [OpenAQ](https://openaq.org/). Dữ liệu thời tiết (nếu dùng) sẽ ghi rõ nguồn sau khi chọn.
+Số đo PM2.5 theo giờ của các trạm ở Hà Nội lấy từ [OpenAQ](https://openaq.org/). Thời tiết lấy từ Open-Meteo (ERA5). Nguồn nào được làm nhãn, nguồn nào chỉ là mô hình hoặc bản đồ, nằm trong [docs/nguon-du-lieu.md](docs/nguon-du-lieu.md). Cách tải một năm gần nhất và bộ cột của mô hình nằm trong [docs/plan-crawl.md](docs/plan-crawl.md).
 
 Ban đầu dự án thử trên [Beijing Multi-Site Air Quality](https://archive.ics.uci.edu/dataset/501/beijing+multi+site+air+quality+data) (UCI id 501) để dựng quy trình, sau đó chuyển sang Hà Nội.
 

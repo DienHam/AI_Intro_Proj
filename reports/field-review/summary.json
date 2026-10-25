@@ -1,0 +1,7 @@
+{
+  "stations": 6,
+  "train_stations": 3,
+  "rows": 52560,
+  "model_v1_rows": 23449,
+  "discovery": "openaq-api"
+}

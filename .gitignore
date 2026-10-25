@@ -152,6 +152,9 @@ activemq-data/
 # Environments
 .env
 .envrc
+
+# Local data pulls
+data/
 .venv
 env/
 venv/

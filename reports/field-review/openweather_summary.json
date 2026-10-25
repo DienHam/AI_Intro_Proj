@@ -1,0 +1,176 @@
+{
+  "history_rows": 50688,
+  "hours_per_point": 8448,
+  "history_start": "2025-10-25 00:00:00+07:00",
+  "history_end": "2026-10-24 23:00:00+07:00",
+  "pm25_identical_across_stations": false,
+  "forecast_hours": 96,
+  "weather_http": 200,
+  "weather_top_keys": [
+    "base",
+    "clouds",
+    "cod",
+    "coord",
+    "dt",
+    "id",
+    "main",
+    "name",
+    "rain",
+    "sys",
+    "timezone",
+    "visibility",
+    "weather",
+    "wind"
+  ],
+  "weather_main_keys": [
+    "feels_like",
+    "grnd_level",
+    "humidity",
+    "pressure",
+    "sea_level",
+    "temp",
+    "temp_max",
+    "temp_min"
+  ],
+  "weather_wind_keys": [
+    "deg",
+    "gust",
+    "speed"
+  ],
+  "current": [
+    {
+      "location_id": 2161292,
+      "time_utc": "2026-10-25 15:50:26+00:00",
+      "owm_aqi": 3,
+      "owm_co": 343.99,
+      "owm_no": 0,
+      "owm_no2": 5.02,
+      "owm_o3": 40.35,
+      "owm_so2": 2.02,
+      "owm_pm25": 48.62,
+      "owm_pm10": 55.27,
+      "owm_nh3": 1.63
+    },
+    {
+      "location_id": 4946813,
+      "time_utc": "2026-10-25 15:53:34+00:00",
+      "owm_aqi": 3,
+      "owm_co": 343.99,
+      "owm_no": 0,
+      "owm_no2": 5.02,
+      "owm_o3": 40.35,
+      "owm_so2": 2.02,
+      "owm_pm25": 48.62,
+      "owm_pm10": 55.27,
+      "owm_nh3": 1.63
+    },
+    {
+      "location_id": 4946812,
+      "time_utc": "2026-10-25 15:57:50+00:00",
+      "owm_aqi": 3,
+      "owm_co": 247.32,
+      "owm_no": 0,
+      "owm_no2": 2.4,
+      "owm_o3": 34.61,
+      "owm_so2": 1.06,
+      "owm_pm25": 32.33,
+      "owm_pm10": 35.39,
+      "owm_nh3": 0.3
+    },
+    {
+      "location_id": 2161306,
+      "time_utc": "2026-10-25 15:54:15+00:00",
+      "owm_aqi": 3,
+      "owm_co": 247.32,
+      "owm_no": 0,
+      "owm_no2": 2.4,
+      "owm_o3": 34.61,
+      "owm_so2": 1.06,
+      "owm_pm25": 32.33,
+      "owm_pm10": 35.39,
+      "owm_nh3": 0.3
+    },
+    {
+      "location_id": 6123215,
+      "time_utc": "2026-10-25 15:51:07+00:00",
+      "owm_aqi": 3,
+      "owm_co": 328.85,
+      "owm_no": 0,
+      "owm_no2": 4.64,
+      "owm_o3": 34.79,
+      "owm_so2": 1.81,
+      "owm_pm25": 44.09,
+      "owm_pm10": 50.66,
+      "owm_nh3": 1.83
+    },
+    {
+      "location_id": 4946811,
+      "time_utc": "2026-10-25 15:56:42+00:00",
+      "owm_aqi": 3,
+      "owm_co": 343.99,
+      "owm_no": 0,
+      "owm_no2": 5.02,
+      "owm_o3": 40.35,
+      "owm_so2": 2.02,
+      "owm_pm25": 48.62,
+      "owm_pm10": 55.27,
+      "owm_nh3": 1.63
+    }
+  ],
+  "pooled_train": [
+    {
+      "field": "pm25",
+      "station_n": 23553,
+      "station_corr": 0.582,
+      "station_mae": 24.79,
+      "station_bias": 1.8,
+      "cams_corr": 0.419,
+      "cams_mae": 28.85
+    },
+    {
+      "field": "pm10",
+      "station_n": 15853,
+      "station_corr": 0.564,
+      "station_mae": 31.23,
+      "station_bias": -15.04,
+      "cams_corr": 0.413,
+      "cams_mae": 30.21
+    },
+    {
+      "field": "no2",
+      "station_n": 12440,
+      "station_corr": -0.005,
+      "station_mae": 30.34,
+      "station_bias": -29.73,
+      "cams_corr": 0.184,
+      "cams_mae": 24.87
+    },
+    {
+      "field": "o3",
+      "station_n": 15106,
+      "station_corr": 0.194,
+      "station_mae": 29.14,
+      "station_bias": 19.09,
+      "cams_corr": 0.545,
+      "cams_mae": 43.63
+    },
+    {
+      "field": "so2",
+      "station_n": 15546,
+      "station_corr": -0.145,
+      "station_mae": 9.76,
+      "station_bias": -8.87,
+      "cams_corr": null,
+      "cams_mae": null
+    },
+    {
+      "field": "co",
+      "station_n": 4816,
+      "station_corr": -0.058,
+      "station_mae": 1663.4,
+      "station_bias": -1662.06,
+      "cams_corr": null,
+      "cams_mae": null
+    }
+  ]
+}
